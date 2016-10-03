@@ -559,7 +559,8 @@ public class Main {
                                 buildNodesTestFailures2.putAll(key, entry.getValue());
                             }
                         }
-                    } else {
+                    }
+                    if (toolArgs.groupTestsFailures) {
                         for (Map.Entry<String, TestFailure> entry : completedProcess.testsFailures.entries()) {
                             buildNodesFailures.putAll(String.valueOf(completedProcess.buildNumber).concat(KEYS_SEPARATOR).concat(entry.getKey()).concat(entry.getValue().failureToDisplay), entry.getValue());
                         }
