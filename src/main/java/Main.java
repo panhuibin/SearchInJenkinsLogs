@@ -184,8 +184,7 @@ public class Main {
         List<String> matchedFailedTests = new ArrayList<>();
         Map<String, Integer> testsCount = new HashedMap<>();
         ArrayListValuedHashMap<String, TestFailure> testsFailures = new ArrayListValuedHashMap<>();
-        DocumentBuilderFactory dbFactory
-                = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         jUnitReportXml = encodeNewLineCharInFailureElements(jUnitReportXml);
         Document doc = dBuilder.parse(new ByteArrayInputStream(jUnitReportXml.getBytes()));
@@ -593,6 +592,7 @@ public class Main {
         printTheNodesOrTestsMatchingSearchedText(toolArgs, buildNodesArtifacts);
 
         if (toolArgs.groupTestsFailures) {
+            System.out.println("buildNodesFailures: " + buildNodesFailures);
             // ======== PRINT THE COMMON FAILURES ========
             printTheCommonFailures(toolArgs, buildNodesFailures);
         }
